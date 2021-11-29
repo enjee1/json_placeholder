@@ -1,45 +1,43 @@
 package com.careerdevs.JsonPlaceholder.controllers;
 
+import com.careerdevs.JsonPlaceholder.models.Photo;
 import com.careerdevs.JsonPlaceholder.models.User;
-import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-
 @RestController
 @RequestMapping("/api")
-public class PlaceHolderUserController {
+public class PlaceHolderPhotoController {
     private static final String JPH_URL = "https://jsonplaceholder.typicode.com/";
 
-    @GetMapping("/users")
-    public Object getAllUsers(RestTemplate restTemplate) {
-        User[] users;
+    @GetMapping("/photos")
+    public Object getAllPhotos(RestTemplate restTemplate) {
+        Photo[] allPhotos;
 
         try {
-            users = restTemplate.getForObject(JPH_URL + "users/", User[].class);
+            allPhotos = restTemplate.getForObject(JPH_URL + "photos/", Photo[].class);
 
         } catch (Exception exc) {
             return exc.getMessage();
         }
 
-        return users;
+        return allPhotos;
     }
 
-    @GetMapping("/users/{id}")
-    public Object getUserById(RestTemplate restTemplate,
-                                @PathVariable(name = "id") String id) {
-        User user;
+    @GetMapping("/photos/{id}")
+    public Object getPhotoById(RestTemplate restTemplate,
+                               @PathVariable(name = "id") String id) {
+        Photo photo;
 
         try {
-            user = restTemplate.getForObject(JPH_URL + "users/" + id, User.class);
+            photo = restTemplate.getForObject(JPH_URL + "photos/" + id, Photo.class);
         } catch (Exception exc) {
             return exc.getMessage();
         }
 
-        return user;
+        return photo;
     }
 }
