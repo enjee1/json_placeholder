@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class PlaceHolderUserController {
     private static final String JPH_URL = "https://jsonplaceholder.typicode.com/";
 
+    //Test comment
+
     @GetMapping("/users")
     public Object getAllUsers(RestTemplate restTemplate) {
         User[] users;
