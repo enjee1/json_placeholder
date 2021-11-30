@@ -1,6 +1,5 @@
 package com.careerdevs.JsonPlaceholder.models;
 
-//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
     private String id;
@@ -11,10 +10,6 @@ public class User {
     private String phone;
     private String website;
     private Company company;
-
-    public User() {
-
-    }
 
     public String getId() {
         return id;
