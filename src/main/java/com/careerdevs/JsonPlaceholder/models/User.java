@@ -7,8 +7,14 @@ public class User {
     private String name;
     private String username;
     private String email;
+    private Address address;
     private String phone;
     private String website;
+    private Company company;
+
+    public User() {
+
+    }
 
     public String getId() {
         return id;
@@ -42,6 +48,14 @@ public class User {
         this.email = email;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -58,11 +72,41 @@ public class User {
         this.website = website;
     }
 
-    private class Address {
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public static class Address {
         private String street;
         private String suite;
         private String city;
-        private String zipCode;
+        private String zipcode;
+        private Geo geo;
+
+        public static class Geo {
+            private String lat;
+            private String lng;
+
+            public String getLat() {
+                return lat;
+            }
+
+            public void setLat(String lat) {
+                this.lat = lat;
+            }
+
+            public String getLng() {
+                return lng;
+            }
+
+            public void setLng(String lng) {
+                this.lng = lng;
+            }
+        }
 
         public String getStreet() {
             return street;
@@ -88,37 +132,24 @@ public class User {
             this.city = city;
         }
 
-        public String getZipCode() {
-            return zipCode;
+        public String getZipcode() {
+            return zipcode;
         }
 
-        public void setZipCode(String zipCode) {
-            this.zipCode = zipCode;
+        public void setZipcode(String zipcode) {
+            this.zipcode = zipcode;
         }
 
-        private class Geo {
-            private String lat;
-            private String lng;
+        public Geo getGeo() {
+            return geo;
+        }
 
-            public String getLat() {
-                return lat;
-            }
-
-            public void setLat(String lat) {
-                this.lat = lat;
-            }
-
-            public String getLng() {
-                return lng;
-            }
-
-            public void setLng(String lng) {
-                this.lng = lng;
-            }
+        public void setGeo(Geo geo) {
+            this.geo = geo;
         }
     }
 
-    private class Company {
+    public static class Company {
         private String name;
         private String catchPhrase;
         private String bs;
